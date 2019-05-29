@@ -6,6 +6,8 @@ export default gql`
    }
     extend type Mutation{
         addNewCategory(budget:ID!, name:String! , description: String!): Category! @private
+        editCategory(id:ID!, name:String , description: String): Category! @private
+        deleteCategory(id:ID!): Category! @private
     }
     type Category {
         id: ID!

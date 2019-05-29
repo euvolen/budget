@@ -23,11 +23,19 @@ export default {
                         income:[]
                     }
                     const bg = await Budget.create(newBudget)
+                    req.session.budget = bg._id
+                    await User.findOneAndUpdate({_id:req.session.userId},{ $set: { budget: bg._id }}, {new:true})
+                   
                     return bg
                 }
 
            })
-        }
+        },
+        deleteBudget: async (root, args, {req}, info)=>{
+           
+            return (await Budget.findByIdAndDelete(args.id))
+           },
+
     },
     Budget:{
         family:(root, args, {req,res}, info)=>{

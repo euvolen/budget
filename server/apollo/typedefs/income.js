@@ -6,6 +6,8 @@ export default gql`
    }
     extend type Mutation{
         addNewIncome(budget:ID!, recipient:ID!, category:ID!, summ:Int! , description: String!): Income! @private
+        editIncome(id:ID!, category:ID, summ:Int , description: String): Income! @private
+        deleteIncome(id:ID!): Income! @private
     }
     type Income {
         id: ID!

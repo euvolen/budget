@@ -25,8 +25,15 @@ export default {
             const cat =  await Category.create(newCategory)
             return cat
         
-    }
-        
+    }, 
+     editCategory: async(root, args, {req}, info)=>{
+         //todo validation
+         return (await Expense.findByIdAndUpdate(args.id,{$set:{args}}, {new:true}))
+    },
+     deleteCategory: async (root, args, {req}, info)=>{
+        //todo validation
+        return (await Expense.findByIdAndDelete(args.id))
+     },
     },
     Category:{
         budget:async (root, args, {req,res}, info)=>{   

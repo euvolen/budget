@@ -6,6 +6,7 @@ export default gql`
    }
     extend type Mutation{
         createNewBudget: Budget! @private
+        deleteBudget(id:ID!): Budget @private
     }
     type Budget {
         id: ID!

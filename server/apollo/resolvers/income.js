@@ -28,9 +28,16 @@ export default {
             const inc =  await Income.create(newIncome)
             return inc
         
-    }
-        
     },
+    editIncome: async(root, args, {req}, info)=>{
+        //todo validation
+        return (await Income.findByIdAndUpdate(args.id,{$set:{args}}, {new:true}))
+    },
+    deleteIncome: async(root, args, {req}, info)=>{
+        //todo validation
+        return (await Income.findByIdAndDelete(args.id))
+    },
+},
     Income:{
         category:async (root, args, {req,res}, info)=>{
                   

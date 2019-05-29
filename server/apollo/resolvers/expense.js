@@ -28,7 +28,15 @@ export default {
             const exp =  await Expense.create(newExpense)
             return exp
         
-    }
+    },
+    editExpense: async(root, args, {req}, info)=>{
+        //todo validation
+        return (await Expense.findByIdAndUpdate(args.id,{$set:{args}}, {new:true}))
+    },
+    deleteExpense: async(root, args, {req}, info)=>{
+        //todo validation
+        return (await Expense.findByIdAndDelete(args.id))
+    },
         
     },
     Expense:{
