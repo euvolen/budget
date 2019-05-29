@@ -1,5 +1,6 @@
-
+import Joi from 'joi'
 import { Category } from "../../models"
+import { category } from "../../validations"
 import { UserInputError } from "apollo-server-core"
 import mongoose from "mongoose";
 
@@ -16,6 +17,7 @@ export default {
     Mutation:{
         addNewCategory: async (root, args, {req}, info)=>{
        //TODO validation
+            await Joi.validate(args, category, {abortEarly:false})
             const newCategory = {
                 name:args.name,
                 description:args.description,
@@ -28,6 +30,7 @@ export default {
     }, 
      editCategory: async(root, args, {req}, info)=>{
          //todo validation
+         await Joi.validate(args, category, {abortEarly:false})
          return (await Expense.findByIdAndUpdate(args.id,{$set:{args}}, {new:true}))
     },
      deleteCategory: async (root, args, {req}, info)=>{

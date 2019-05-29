@@ -1,4 +1,5 @@
-
+import Joi from 'joi'
+import { budgetVariable } from "../../validations"
 import { Expense } from "../../models"
 import { UserInputError} from "apollo-server-core"
 import mongoose from "mongoose"
@@ -15,7 +16,8 @@ export default {
     },
     Mutation:{
         addNewExpense: async (root, args, {req}, info)=>{
-       //TODO validation
+
+        await Joi.validate(args, budgetVariable, {abortEarly:false})
             const newExpense = {
                 description:args.description,
                 category:args.category,
@@ -30,11 +32,10 @@ export default {
         
     },
     editExpense: async(root, args, {req}, info)=>{
-        //todo validation
+        await Joi.validate(args, budgetVariable, {abortEarly:false})
         return (await Expense.findByIdAndUpdate(args.id,{$set:{args}}, {new:true}))
     },
     deleteExpense: async(root, args, {req}, info)=>{
-        //todo validation
         return (await Expense.findByIdAndDelete(args.id))
     },
         

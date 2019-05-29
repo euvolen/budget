@@ -10,14 +10,6 @@ const userSchema = new Schema({
         }
 
     },
-    username: {
-        type: String,
-        validate: {
-            validator: async username => User.doesntExist({ username }),
-            message: () => `Username has been already taken`
-        }
-
-    },
     name: String,
     password: String,
     budget: 
