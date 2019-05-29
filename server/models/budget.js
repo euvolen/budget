@@ -12,9 +12,9 @@ const budgetSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'income'
     }],
-    expences: [{
+    expenses: [{
         type: Schema.Types.ObjectId,
-        ref: 'expences'
+        ref: 'expenses'
     }],
 
 }, {

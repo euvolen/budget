@@ -1,18 +1,23 @@
 import mongoose, { Schema } from 'mongoose'
 
-const expenceSchema = new Schema({
+const expenseSchema = new Schema({
 
     currency :String,
     category: 
             {
                 type: Schema.Types.ObjectId,
-                ref: 'categories'
+                ref: 'category'
             },
     summ: Number,
     description:String,
     spender:   {
         type: Schema.Types.ObjectId,
         ref: 'users'
+    },
+    budget: 
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'budget'
     },   
     
 
@@ -25,6 +30,6 @@ const expenceSchema = new Schema({
 
 
 
-const Expences = mongoose.model('expences', expenceSchema)
+const Expenses = mongoose.model('expenses', expenseSchema)
 
-export default Expences
+export default Expenses

@@ -5,10 +5,9 @@ import {DBLINK} from '../configs.js'
 //connects to dbs (dev and prod)
 export const connect = (dbName)=>{
     switch (dbName) {
-        case 'badget-dev':
+        case 'budget':
             return new Promise ((resolve, reject) =>{
                 mongoose.connect(DBLINK, {useFindAndModify:false, useNewUrlParser:true}).then(res =>{
-                    console.log(res)
                     console.log(`DB ${dbName} is connected successfully`)
                     resolve()
                 }).catch(err=> {

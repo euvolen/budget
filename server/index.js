@@ -5,9 +5,9 @@ import resolvers from './apollo/resolvers'
 import * as database from './connections/db-connect'
 import session from './connections/session-connect'
 import schemaDirectives from './apollo/directives'
-import {APP_PORT,IS_PROD} from './configs'
+import {PORT,IS_PROD} from './configs'
 
-database.connect().then(()=>{
+database.connect('budget').then(()=>{
 
     const app = express()
   
@@ -27,8 +27,8 @@ database.connect().then(()=>{
   })
      
   server.applyMiddleware({ app , cors:false})
-  app.listen({ port: APP_PORT }, () => {
-      console.log(`Server ready at http://localhost:${APP_PORT}${server.graphqlPath}`)
+  app.listen({ port: PORT }, () => {
+      console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`)
   })
   }).catch(err =>{
       console.error(err)

@@ -1,22 +1,21 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, {
+    Schema
+} from 'mongoose'
 
 const categorySchema = new Schema({
 
-    name :String,
-    description:String,
-    initiator:{
- 
+    name: String,
+    description: String,
+    budget: {
+
         type: Schema.Types.ObjectId,
-        ref: 'users'
-    } 
-    
-    
+        ref: 'budget'
+    }
+
+
 }, {
-        timestamps: true
-    })
-
-
-
+    timestamps: true
+})
 
 
 const Category = mongoose.model('category', categorySchema)

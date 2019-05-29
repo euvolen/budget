@@ -6,7 +6,7 @@ const incomeSchema = new Schema({
     category: 
             {
                 type: Schema.Types.ObjectId,
-                ref: 'categories'
+                ref: 'category'
             },
     summ: Number,
     description:String,
@@ -14,6 +14,11 @@ const incomeSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },   
+    budget: 
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'budget'
+    },
     
     
 }, {
