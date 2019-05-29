@@ -1,0 +1,30 @@
+{
+  "name": "fancy-badget",
+  "version": "1.0.0",
+  "description": "Small app for family badget",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r esm",
+    "client": "npm start --prefix client",
+    "app": "concurrently \"npm run start\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "Eugene Volen",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.5.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.0",
+    "connect-mongo": "^2.0.3",
+    "esm": "^3.2.25",
+    "express": "^4.17.0",
+    "express-session": "^1.16.1",
+    "graphql": "^14.3.1",
+    "joi": "^14.3.1",
+    "mongoose": "^5.5.11",
+    "nodemailer": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
