@@ -12,7 +12,7 @@
   "author": "Eugene Volen",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^2.5.0",
+    "apollo-server-express": "^2.14.2",
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.0",
     "connect-mongo": "^2.0.3",
